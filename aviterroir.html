@@ -6,7 +6,7 @@
   <title>Aviterroir — Vente de poulets de chair</title>
   <meta name="description" content="Aviterroir — Vente de poulets de chair à Dakar. Commandez facilement en ligne nos produits de qualité.">
   <style>
-    /* ... ton CSS actuel, inchangé ... */
+    
     html, body { height: 100%; margin: 0; }
     body { display: flex; flex-direction: column; min-height: 100vh; font-family: "Segoe UI", Arial, sans-serif; background: #f4f4f4; color: #222; }
     header { background: #222; color: white; padding: 15px 0; text-align: center; font-size: 1.6em; letter-spacing: 1px; display: flex; align-items: center; justify-content: center; position: relative; }
@@ -61,7 +61,6 @@
 
   <div class="container">
 
-    <!-- Accueil avec galerie -->
     <section id="accueil" class="active">
       <h2>Bienvenue sur notre boutique</h2>
       <p>Découvrez nos produits de qualité et commandez facilement en ligne. Nous vous offrons le meilleur rapport qualité/prix.</p>
@@ -88,14 +87,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Produits -->
-    <section id="produits">
-      <h2>Nos Produits</h2>
-      <div class="search-bar">
-        <input type="text" id="recherche" placeholder="🔍 Rechercher un produit..." onkeyup="filtrerProduits()">
-      </div>
-      <div class="produits" id="listeProduits">
         <!-- Produits -->
 <section id="produits">
   <h2>Nos Produits</h2>
@@ -147,12 +138,10 @@
     <input type="text" id="orderPhone" placeholder="Numéro de téléphone" required>
     <input type="text" id="orderAddress" placeholder="Adresse de livraison" required>
 
-    <label for="paymentMethod">Méthode de paiement :</label>
-    <select id="paymentMethod" required>
-      <option value="">-- Sélectionnez --</option>
-      <option value="Cash à la livraison">Cash à la livraison</option>
-      <option value="Mobile Money">Mobile Money</option>
-    </select>
+    <label for="paymentMethod">Mode de paiement</label>
+            <select id="paymentMethod" name="payment">
+              <option value="Paiement à la livraison">Paiement à la livraison</option>
+            
 
     <p id="orderStatus" style="text-align:center; margin-top:8px;"></p>
     <button type="submit" id="validateOrderBtn">Valider la commande via WhatsApp</button>
@@ -211,8 +200,6 @@
   </footer>
 
   <script>
-    /* --- ton JS actuel, avec ajout WhatsApp --- */
-    // Navigation et sections
     function afficherSection(id, evt){if(evt) evt.preventDefault();document.querySelectorAll('section').forEach(s=>{s.style.display='none'; s.classList.remove('active');}); let target=document.getElementById(id); if(target){target.style.display='block';target.classList.add('active'); const c=document.querySelector('.container'); if(c) c.scrollTop=0; else window.scrollTo(0,0);}}
 
     document.addEventListener('DOMContentLoaded',function(){
